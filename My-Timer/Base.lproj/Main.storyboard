@@ -30,10 +30,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1b-7l-IsL">
                                 <rect key="frame" x="57" y="478" width="140" height="140"/>
                                 <state key="normal" image="btn_start"/>
+                                <connections>
+                                    <action selector="startButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iF2-Db-K8F"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhF-vE-8wE">
                                 <rect key="frame" x="217" y="478" width="140" height="140"/>
                                 <state key="normal" image="btn_stop"/>
+                                <connections>
+                                    <action selector="stopButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nYY-LX-hlK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,10 +58,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TUj-Pg-ngW">
-                        <barButtonItem key="rightBarButtonItem" title="秒数設定" id="1zH-1j-ck8"/>
+                        <barButtonItem key="rightBarButtonItem" title="秒数設定" id="1zH-1j-ck8">
+                            <connections>
+                                <action selector="settingButtonAction:" destination="BYZ-38-t0r" id="bRp-be-wSV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="countDownLabel" destination="Is8-nE-boV" id="Zc7-mC-bVp"/>
+                        <outlet property="countDownLabel" destination="Is8-nE-boV" id="TVe-FU-z6h"/>
                         <segue destination="fbc-OK-bBr" kind="show" identifier="goSetting" id="y2Q-fd-HHf"/>
                     </connections>
                 </viewController>
@@ -77,6 +87,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUQ-Bq-XhF">
                                 <rect key="frame" x="147" y="488" width="120" height="120"/>
                                 <state key="normal" image="btn_ decision"/>
+                                <connections>
+                                    <action selector="decisionButtonAction:" destination="fbc-OK-bBr" eventType="touchUpInside" id="6lR-7g-Xsx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,6 +102,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mhX-7b-R1J"/>
                     </view>
+                    <connections>
+                        <outlet property="timerSettingPicker" destination="Qbz-Nx-N7I" id="uSf-VZ-Zf2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUV-Ai-Neg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
