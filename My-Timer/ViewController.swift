@@ -31,6 +31,17 @@ class ViewController: UIViewController {
         settings.register(defaults: [settingKey:10])
     }
 
+    @IBAction func resetButton(_ sender: Any) {
+        self.stopTimer()
+        let settings = UserDefaults.standard
+        
+        // UserDefaultsに初期設定を登録
+        settings.setValue(0, forKey: "minuets")
+        settings.setValue(10, forKey: settingKey)
+        count = 0
+        _ = self.displayUpdate()
+    }
+    
     @IBOutlet weak var countDownLabel: UILabel!
     
     @IBAction func settingButtonAction(_ sender: Any) {
@@ -65,14 +76,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stopButtonAction(_ sender: Any) {
-        // timerをアンラップしてnowTimerに代入
-        if let nowTimer = timer {
-            // もしタイマーが、実行中だったら停止
-            if nowTimer.isValid == true {
-                // タイマー停止
-                nowTimer.invalidate()
-            }
-        }
+        self.stopTimer()
     }
     
     // 画面の更新をする（戻り値：remaincount：残り時間）
@@ -89,6 +93,17 @@ class ViewController: UIViewController {
         // 残り時間を戻り値に設定
         return remainCount
         
+    }
+    
+    func stopTimer() {
+        // timerをアンラップしてnowTimerに代入
+        if let nowTimer = timer {
+            // もしタイマーが、実行中だったら停止
+            if nowTimer.isValid == true {
+                // タイマー停止
+                nowTimer.invalidate()
+            }
+        }
     }
     
     // 経過時間の処理
