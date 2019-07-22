@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         let settings = UserDefaults.standard
         
         // UserDefaultsに初期設定を登録
+        settings.register(defaults: ["minuets":0])
         settings.register(defaults: [settingKey:10])
     }
 
@@ -80,7 +81,7 @@ class ViewController: UIViewController {
         // UserDefaultsのインスタンスを生成
         let settings = UserDefaults.standard
         // 取得した秒数をtimerValueに渡す
-        let timerValue = settings.integer(forKey: settingKey)
+        let timerValue = settings.integer(forKey: settingKey) + settings.integer(forKey: "minuets")
         // 残り時間（remainCount）を生成
         let remainCount = timerValue - count
         // remainCount（残りの時間）をラベルに表示
